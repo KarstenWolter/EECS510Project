@@ -1,0 +1,18 @@
+startAction actionSequence endPlayAction freeThrowSequence
+dribble pass shotAttempt shotAttempt_miss_rebound steal turnover shotOutcome foul_freeThrowOutcome
+startAction
+endPlayAction freeThrowSequence
+startAction dribble actionSequence
+actionSequence pass actionSequence
+actionSequence shotAttempt actionSequence
+actionSequence shotAttempt_miss_rebound actionSequence
+actionSequence scored endPlayAction
+actionSequence miss endPlayAction
+actionSequence blocked endPlayAction
+actionSequence steal endPlayAction
+actionSequence turnover endPlayAction
+actionSequence shotOutcome endPlayAction
+actionSequence foul freeThrowSequence
+freeThrowSequence zeroMade freeThrowSequence
+freeThrowSequence oneMade freeThrowSequence
+freeThrowSequence twoMade freeThrowSequence

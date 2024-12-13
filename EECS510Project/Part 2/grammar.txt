@@ -1,0 +1,23 @@
+play → startAction actionSequence endPlayAction | startAction actionSequence freeThrowSequence 
+
+startAction → dribble
+
+action → pass 
+        | shotAttempt 
+        | shotAttempt miss rebound
+
+shotAttempt → shoot2pt | shoot3pt
+
+shotOutcome → scored | miss | blocked
+
+freeThrowOutcome → zeroMade | oneMade | twoMade
+
+freeThrowSequence → foul freeThrowOutcome
+
+actionSequence → action actionSequence
+               | action
+               | λ
+
+endPlayAction → steal 
+               | turnover 
+               | shotOutcome

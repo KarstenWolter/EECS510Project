@@ -1,0 +1,26 @@
+Non-terminal symbols:
+play(S) - the starting symbol representing a valid play
+startAction - the initial action required for a valid play
+action - the moves that can be made between the start of the play and the end
+actionSequence - the sequence of actions tha take place within the play
+shotAttempt - represents the type of shot taken (2-point or 3-point)
+shotOutcome - represents the outcome of the shot attempt
+freeThrowSequence - the sequence triggered by a foul
+freeThrowOutcome - the result of the free throws attempted. terminates the play
+endPlayAction - represents the single action that can terminate a play
+
+Terminal symbols:
+dribble - starts every play
+pass - idle action 
+shoot2pt - action to attempt a 2-point shot
+shoot3pt - action to attempt a 3-point shot
+scored - one of the shot outcomes, dependent on previous action (shoot2pt or shoot3pt)
+miss - another shot outcome, simulates the player missing their shot
+blocked - last shot outcome, simulates the players shot attempt being blocked by an opposing player and losing possession in the process
+rebound - action to maintain possession of ball after miss
+turnover - action that ends the 'play', simulating one of many ways to lose possession (e.g. bad pass, certain violations, etc.)
+steal - action that ends the 'play', simulating the opposing team intercepting the ball
+foul - represents a shooting foul, allowing for two free throws to be attempted and ends the possession
+zeroMade - indicates no free throws being made
+oneMade - indicates one free throw made
+twoMade - indicates two free throws made

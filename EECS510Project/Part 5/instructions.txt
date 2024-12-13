@@ -1,0 +1,4 @@
+1. Change directory to where ever this file is in cmd (...\EECS510Project\Part 5)
+2. automaton.txt is already included 
+3. type 'python testing.py' into cmd 
+4. output should read accept, accept, reject, accept (with the steps through the automaton under the accepts)

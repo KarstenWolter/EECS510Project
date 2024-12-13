@@ -1,0 +1,19 @@
+Preface: 
+This language is based off of the game of Basketball. Strings in this language are refered to as 'plays'. A play last as long as possession is first obtained to
+either the ball being 'turned over'(lost possession) to the opposing team or until point(s) are scored for the users team.
+Rules:
+1. Every play must start with 'dribble'.
+2. Every play may contain any amount of actions, even zero.
+3. The play must end with an 'endPlayAction'(steal, turnover, shotOutcome) or the 'freeThrowSequence' which is initiated by using the 'foul' action.
+4. A shotAttempt must be followed by a valid outcome.
+    • End the play with 'scored' or 'miss'
+    • A miss can be followed up with 'rebound' to maintain possession of the ball (e.g. 'shoot2pt miss rebound shoot3pt')
+5. A shotOutcome requires a shotAttempt to be taken immediately before its called.
+    • 'dribble scored' is invalid because no shot was attempted
+6. A valid play cannot be ended prematurely.
+    • 'dribble shoot2pt' is invalid because it lacks a shot outcome
+    • 'dribble pass' is invalid because it requires an endPlayAction
+7. No further actions may be taken after an endPlayAction.
+    • The play is terminated once an endPlayAction occurs
+8. A 'foul' will disallow any further actions to be made and will trigger 'freeThrowSequence' which is followed up by stating a freeThrowOutcome, resulting in the end of the play.
+    • e.g. dribble shoot2pt miss rebound foul oneMade *end*

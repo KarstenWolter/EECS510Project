@@ -1,0 +1,42 @@
+**Automata in schema form:**
+Line 8: A whitespace-separated list of the states 
+Line 9: A whitespace-separated list of input symbols
+Line 10: The start state
+Line 11: A whitespace-separated list of accept states
+Lines 12-19: Each line represents one transition with each transition
+
+startAction actionSequence endPlayAction freeThrowSequence
+dribble pass shotAttempt shotAttempt_miss_rebound steal turnover shotOutcome foul_freeThrowOutcome
+startAction
+endPlayAction freeThrowSequence
+startAction dribble actionSequence
+actionSequence pass actionSequence
+actionSequence shotAttempt actionSequence
+actionSequence shotAttempt_miss_rebound actionSequence
+actionSequence scored endPlayAction
+actionSequence miss endPlayAction
+actionSequence blocked endPlayAction
+actionSequence steal endPlayAction
+actionSequence turnover endPlayAction
+actionSequence shotOutcome endPlayAction
+actionSequence foul freeThrowSequence
+freeThrowSequence zeroMade freeThrowSequence
+freeThrowSequence oneMade freeThrowSequence
+freeThrowSequence twoMade freeThrowSequence
+
+**Written description of schema:**
+Terminal symbols: Explained in alphabet.txt
+
+Non-terminal symbols: Explained in alphabet.txt
+
+States:
+startAction(state 1, start state): This is the starting state of the automaton. It represents waiting for the action 'dribble'
+actionSequence(state 2): After 'dribble', the automaton transition to this state, where actions are repeated as many times as necessary
+endPlayAction(state 3, accepting state): This is the accepting state that is transitioned into if there is a steal, turnover, or a shotOutcome occurs without a follow up rebound
+freeThrowSequence(state 4, accepting state): This is the accepting state that is transitioned into if there was a foul called, which should be followed by a freeThrowOutcome
+
+Transitions: 
+State 1 to state 2: This occurs when the symbol dribble is used
+State 2 to state 2: This occurs when an action is performed such as pass, shotAttempt, 'shotAttempt miss rebound'. And the grammar allows for a loop.
+State 2 to state 3: This occurs when something unrelated to the action loop happens such as a 'steal' or 'turnover'. But, this also occurs when action shotAttempt is NOT followed by 'miss rebound'.
+State 2 to state 4: This occurs when a foul is called in the string, according to the rules 'foul' should always be followed up with a freeThrowOutcome (zeroMade, oneMade, twoMade)
